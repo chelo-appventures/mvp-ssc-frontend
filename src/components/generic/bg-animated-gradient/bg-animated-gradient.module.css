@@ -1,0 +1,27 @@
+.bg_black {
+  background: black;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.animate {
+  z-index: 1;
+  background: linear-gradient(-45deg, black, black, #1ec9e930, black, black);
+  background-size: 400% 400%;
+  width: 100%;
+  height: 100%;
+  animation: animate 30s ease infinite;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
