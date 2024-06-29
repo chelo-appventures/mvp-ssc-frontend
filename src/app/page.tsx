@@ -4,11 +4,11 @@ import { motion } from "framer-motion"
 import { useState } from "react"
 
 import { BgAnimatedGradient } from "@/components/generic/bg-animated-gradient"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { Login } from "@/components/this_app/Login"
+import { SignUp } from "@/components/this_app/SignUp"
 
 export default function Home() {
-  const [email, setEmail] = useState("")
+  const [isSignUp, setIsSignUp] = useState(false)
 
   return (
     <BgAnimatedGradient>
@@ -19,16 +19,14 @@ export default function Home() {
           transition={{ duration: 1, delay: 0.5 }}
           className="flex flex-1 flex-col items-center justify-center">
           <div className="flex">
-            <p className="px-5 text-center text-5xl">Sprint smart contracts</p>
+            <p className="px-5 text-center text-5xl">Buy me a beer</p>
           </div>
           <motion.div
-            className="mt-3 text-xl text-gray-600"
+            className="mt-5 text-xl text-gray-500"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1.5 }}>
-            <p className="px-5 text-center">
-              Your sprints with blockchain technology
-            </p>
+            <p className="px-5 text-center">Donate a virtual beer 🍺</p>
           </motion.div>
 
           <div className="h-5" />
@@ -38,17 +36,11 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 3 }}>
-            <Input
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <div className="h-4" />
-            <Button
-              className="w-full"
-              onClick={() => alert(`Hello ${email}!!`)}>
-              Start!
-            </Button>
+            {isSignUp ? (
+              <SignUp {...{ setIsSignUp }} />
+            ) : (
+              <Login {...{ setIsSignUp }} />
+            )}
           </motion.div>
         </motion.div>
       </main>
